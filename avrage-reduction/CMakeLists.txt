@@ -1,12 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
-project(avrage_reduction)
 
-set(CMAKE_CXX_STANDARD 14)
+set(LINK_LIBS ${LINK_LIBS} ${OpenMP_CXX_LIBRARIES})
+set(SOURCE_FILES ${SOURCE_FILES} main.cpp)
 
-set(SOURCE_FILES main.cpp)
-add_executable(avrage_reduction ${SOURCE_FILES})
-
-
-# for openmp
-set(CMAKE_CXX_COMPILER "/usr/local/bin/g++-4.9")
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+add_executable(average_reduction ${SOURCE_FILES})
+target_link_libraries(average_reduction ${LINK_LIBS})

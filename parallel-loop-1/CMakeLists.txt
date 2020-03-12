@@ -1,11 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
-project(openmp_example_1)
 
-set(CMAKE_CXX_STANDARD 14)
+set(LINK_LIBS ${LINK_LIBS} ${OpenMP_CXX_LIBRARIES})
+set(SOURCE_FILES ${SOURCE_FILES} main.cpp)
 
-set(SOURCE_FILES main.cpp)
-add_executable(openmp_example_1 ${SOURCE_FILES})
-
-# for openmp
-set(CMAKE_CXX_COMPILER "/usr/local/bin/g++-4.9")
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fopenmp")
+add_executable(parallel-loop-1 ${SOURCE_FILES})
+target_link_libraries(parallel-loop-1 ${LINK_LIBS})
